@@ -1,12 +1,13 @@
 module.exports = {
   entry: './app/App.js',
   output: {
-    path: __dirname + '/public',
+    path: './public',
     publicPath: '/public',
     filename: 'bundle.js'
   },
   devServer: {
-    inline: true
+    inline: true,
+    historyApiFallback: true
   },
   module: {
     loaders: [
@@ -14,6 +15,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel'
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader']
       }
     ]
   }
