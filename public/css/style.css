@@ -3,8 +3,7 @@ img {
 }
 
 .suite-door .ant-row {
-  margin-left: -8px;
-  margin-right: -8px;
+  margin: 16px -8px;
 }
 .suite-door .ant-row > div {
   padding: 8px;

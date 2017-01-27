@@ -54,7 +54,14 @@ class PageLayout extends React.Component {
 	}
 
 	render() {
-		return (
+
+		const home = (
+			<div>
+				{this.props.children}
+			</div>
+		);
+
+		return this.state.path === '/' ? home : (
 			<Layout>
 				<Sider>
 					<Menu theme='dark' mode='inline' selectedKeys={[this.state.path]}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Card, Select, Button } from 'antd';
+import { Row, Col, Card, Select, Button, Timeline } from 'antd';
 
 class SuiteDoor extends React.Component {
 	constructor(props) {
@@ -39,11 +39,16 @@ class SuiteDoor extends React.Component {
 							<img src='/public/img/peephole.jpg' alt='peephole' width='100%'/>
 						</Card>
 					</Col>
-					<Col span='8'>
-						<Card title='History' bordered={false} loading>
-							<p>Sebastian opened the door for 20 seconds.</p>
+				</Row>
+				<Row>
+					<Card title='History' bordered={false} width='100%'>
+							<Timeline pending={<a href="#">See more</a>}>
+								<Timeline.Item>Ambulance called at 9:06pm.</Timeline.Item>
+						    <Timeline.Item>Sebastian opened the door for 20 seconds at 9:05pm.</Timeline.Item>
+						    <Timeline.Item>Daniel took a peephole snapchat at 9:05pm.</Timeline.Item>
+						    <Timeline.Item>Person detected at the door at 9:04pm.</Timeline.Item>
+						  </Timeline>
 						</Card>
-					</Col>
 				</Row>
 			</div>
 		);
