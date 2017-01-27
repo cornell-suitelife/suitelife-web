@@ -6,7 +6,7 @@ import io from 'socket.io-client';
 let socket = io('http://10.147.136.126:5000');
 
 const titles = {
-	'/': 'Home',
+	'/': 'Cornell Suite Life',
 	'/suite-door': 'Suite Door',
 	'/messages': 'Messages'
 };
@@ -82,9 +82,9 @@ class PageLayout extends React.Component {
 						</Menu.ItemGroup>
 					</Menu>
 				</Sider>
-				<Layout>
+				<Layout style={{minHeight: '100vh'}}>
 					<Header style={{ background: '#fff', padding: 0 }}>
-						<h1 style={{ paddingLeft: 38 }}>{this.state.title}</h1>
+						<h1 style={{ textAlign: 'center' }}>{this.state.title}</h1>
 					</Header>
 					<Content style={{ margin: '0 16px' }}>
 						<div style={{ padding: 24, minHeight: 360 }}>
