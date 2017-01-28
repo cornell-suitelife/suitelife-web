@@ -8,7 +8,6 @@ let socket = io('http://localhost:5000');
 const titles = {
 	'/': 'Cornell Suite Life',
 	'/suite-door': 'Suite Door',
-	'/messages': 'Messages',
 	'/calendar': 'Calendar',
 	'/music': 'Music'
 };
@@ -21,8 +20,7 @@ class PageLayout extends React.Component {
 
 		this.state = {
 			path: path,
-			title: titles[path],
-			messages: []
+			title: titles[path]
 		};
 	}
 
@@ -92,13 +90,6 @@ class PageLayout extends React.Component {
 		      </Col>
 		      <Col>
 		      	<Button type='ghost'>
-		      		<Link to='/messages'>
-		      			Messages
-		      		</Link>
-		      	</Button>
-		      </Col>
-		      <Col>
-		      	<Button type='ghost'>
 		      		<Link to='/calendar'>
 		      			Calendar
 		      		</Link>
@@ -136,14 +127,6 @@ class PageLayout extends React.Component {
 								<Link to='/suite-door'>
 									<Icon type='video-camera' />
 									<span className='nav-text'>Suite Door</span>
-								</Link>
-							</Menu.Item>
-							<Menu.Item key='/messages'>
-								<Link to='/messages'>
-									<Badge count={this.state.messages.length}>
-										<Icon type='mail' />
-										<span className='nav-text'>Messages</span>
-									</Badge>
 								</Link>
 							</Menu.Item>
 							<Menu.Item key='/calendar'>
