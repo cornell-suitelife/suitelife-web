@@ -7,7 +7,7 @@ class Home extends React.Component {
 		return(
 			<div className='home-container-page'>
 				{this.props.alert}
-				<Row className='home-table' type="flex" justify="space-around" align="middle">
+				<Row className='home-table' type="flex" justify="space-between" align="middle">
 			    <Col className='home-cell' span='10'>
 						<h1>Cornell Suite Life</h1>
 						<hr/>

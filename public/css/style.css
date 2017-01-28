@@ -1,5 +1,5 @@
 html { 
-  background: url('/public/img/campus.jpg') no-repeat center center fixed; 
+  background: url('/public/img/campus-dark.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -8,7 +8,7 @@ html {
 
 body {
 	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.5) !important;
+	background-color: transparent !important;
 }
 
 .home-container {
@@ -39,7 +39,7 @@ body {
 
 .home-container-page {
 	flex-grow: 1;
-	padding: 50px;
+	margin: 50px;
 	bottom: 0;
 	position: relative;
 }

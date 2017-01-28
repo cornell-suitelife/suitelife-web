@@ -20,7 +20,8 @@
     "antd": "^2.6.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-router": "^3.0.2"
+    "react-router": "^3.0.2",
+    "spotify-web-api-js": "^0.21.2"
   },
   "scripts": {
     "start": "webpack-dev-server"
