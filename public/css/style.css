@@ -7,7 +7,8 @@ html {
 }
 
 body {
-	background-color: transparent !important;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
 .home-container {
@@ -19,8 +20,7 @@ body {
 
 .home-navbar {
 	width: 100%;
-	padding: 20px;
-	background-color: rgba(0, 0, 0, 0.50);
+	padding: 30px 50px;
 }
 
 .home-navbar > div {
@@ -34,24 +34,47 @@ body {
 }
 
 .home-navbar #login-button {
-	margin: 0 15px;
+	margin-left: 15px;
 }
 
 .home-container-page {
 	flex-grow: 1;
-	height: 100%;
-	padding: 30px;
+	padding: 50px;
 	bottom: 0;
+	position: relative;
 }
 
-.home-title {
+.home-container-page .ant-alert {
+	z-index: 10;
+}
+
+.home-table {
 	position: absolute;
-	top: 50%;
+	top: 0;
+	bottom: 0;
+	width: 100%;
 }
 
-.home-title h1 {
+.home-cell {
 	color: #ffffff;
+	min-width: 300px;
+}
+
+.home-cell h1 {
 	font-size: 5em;
+}
+
+.home-cell p {
+	padding-top: 15px;
+	font-size: 1.5em;
+}
+
+#members-list {
+	font-size: 1em;
+}
+
+#members-list p {
+	padding: 0;
 }
 
 .suite-door .ant-row {
