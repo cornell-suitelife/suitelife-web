@@ -65,8 +65,8 @@ class Messages extends React.Component {
 		      <Select.Option value="Ning Ning">Ning Ning</Select.Option>
 		      <Select.Option value="Nick">Nick</Select.Option>
 		    </Select>
-				<Input placeholder='Send message...' onChange={this.handleTextChange} onPressEnter={this.handleSendClick} style={{ width: 480, margin: 10 }}/>
-		    <Button type='primary' onClick={this.handleSendClick}>Send</Button>
+				<Input placeholder='Send message...' onChange={this.handleTextChange} onPressEnter={this.handleSendClick} style={{ width: 480, margin: 10 }} disabled={this.props.status !== 'connected'}/>
+		    <Button type='primary' onClick={this.handleSendClick} disabled={this.props.status !== 'connected'}>Send</Button>
 		    <ul>
 		    	{messages}
 	    	</ul>

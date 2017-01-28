@@ -1,5 +1,46 @@
-img {
-	image-orientation: from-image;
+.home-container {
+	height: 100vh;
+	display: flex;
+  flex-direction: column;
+	position: relative;
+	background: url('/public/img/campus.jpg') no-repeat center fixed;
+}
+
+.home-navbar {
+	width: 100%;
+	padding: 20px;
+	background-color: rgba(0, 0, 0, 0.50);
+}
+
+.home-navbar > div {
+	min-width: 70px;
+}
+
+.home-navbar .ant-btn-ghost {
+	color: #ffffff;
+	border: none;
+	margin: 0 10px;
+}
+
+.home-navbar #login-button {
+	margin: 0 15px;
+}
+
+.home-container-page {
+	flex-grow: 1;
+	height: 100%;
+	padding: 30px;
+	bottom: 0;
+}
+
+.home-title {
+	position: absolute;
+	top: 50%;
+}
+
+.home-title h1 {
+	color: #ffffff;
+	font-size: 5em;
 }
 
 .suite-door .ant-row {

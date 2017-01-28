@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SuiteCalendar extends React.Component {
+class Music extends React.Component {
 	render() {
 		return (
 			<div></div>
@@ -8,4 +8,4 @@ class SuiteCalendar extends React.Component {
 	}
 }
 
-export default SuiteCalendar;
+export default Music;

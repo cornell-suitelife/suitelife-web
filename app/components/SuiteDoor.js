@@ -4,24 +4,14 @@ import { Row, Col, Card, Select, Button, Timeline } from 'antd';
 class SuiteDoor extends React.Component {
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			loading: true
-		};
-	}
-
-	componentDidMount() {
-		this.setState({
-			loading: false
-		});
 	}
 
 	render() {
 		return (
 			<div className='suite-door' style={{ padding: '30px' }}>
-				<Row>
+				<Row type='flex' justify='space-around'>
 					<Col span='8'>
-						<Card title='Automatic Opener' bordered={false} loading={this.state.loading}>
+						<Card title='Automatic Opener' bordered={false} loading={/*this.props.status !== 'connected'*/ false}>
 							<p>The door is currently <b style={{ color: 'red' }}>CLOSED</b>.</p>
 							<label>Open for</label>
 							<Select defaultValue='5 seconds' style={{ width: 120, padding: 10 }} onChange={this.handleOpenTimeChange}>
