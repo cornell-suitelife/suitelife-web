@@ -3,7 +3,7 @@ import { Router, Route, Link, browserHistory } from 'react-router';
 import { Layout, Menu, Icon, Badge, Alert, Row, Col, Button, Popover } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 import io from 'socket.io-client';
-let socket = io('http://localhost:8080');
+let socket = io('http://localhost:5000');
 
 const titles = {
 	'/': 'Cornell Suite Life',
