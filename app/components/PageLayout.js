@@ -2,15 +2,9 @@ import React from 'react';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import { Layout, Menu, Icon, Badge, Alert, Row, Col, Button, Popover } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
+import { titles } from '../routes';
 import io from 'socket.io-client';
 let socket = io(':3000/');
-
-const titles = {
-	'/': 'Cornell Suite Life',
-	'/suite-door': 'Suite Door',
-	'/calendar': 'Calendar',
-	'/music': 'Music'
-};
 
 class PageLayout extends React.Component {
 	constructor(props) {
@@ -127,6 +121,12 @@ class PageLayout extends React.Component {
 								<Link to='/suite-door'>
 									<Icon type='video-camera' />
 									<span className='nav-text'>Suite Door</span>
+								</Link>
+							</Menu.Item>
+							<Menu.Item key='/quotes'>
+								<Link to='/quotes'>
+									<Icon type='quotes' />
+									<span className='nav-text'>Quotes</span>
 								</Link>
 							</Menu.Item>
 							<Menu.Item key='/calendar'>
