@@ -9,7 +9,8 @@ module.exports = {
   },
   devServer: {
     inline: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    port: 8008
   },
   module: {
     loaders: [
@@ -30,6 +31,10 @@ module.exports = {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin({
+        compress: {
+            warnings: false
+        }
+    })
   ]
 }

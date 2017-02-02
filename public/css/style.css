@@ -92,7 +92,8 @@ body {
 
 #quote-text {
   position: absolute;
-  margin: auto;
+  left: 0;
+  right: 0;
   bottom: 8px;
   transition: all 0.25s;
 }
