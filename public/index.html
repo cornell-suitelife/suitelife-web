@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta charset="UTF-8">
+  <title>Suite Life</title>
+  <meta name="description" content="" />
+  <meta name="fragment" content="!" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" type="image/png" href="/img/rose-crest.png" />
+  <link rel="apple-touch-icon" sizes="196x196" type="image/png" href="/img/rose-crest.png">
+  <link rel="stylesheet" type="text/css" href="/index.css">
+  <style>
+    body {
+      margin: 0px;
+      width: 100vw;
+      height: 100vh;
+      background-image: radial-gradient(circle at 50% 15%, #fff, #fff 30%, #ccc);
+    }
+
+    body.loading #content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      font-size: 0px;
+    }
+
+    body.loading #logo {
+      position: absolute;
+      display: block;
+      width: 140px;
+      height: 140px;
+      top: calc(50vh - 70px);
+      left: calc(50vw - 70px);
+    }
+
+    body.loading .spinner {
+      position: absolute;
+      display: block;
+      width: 26px;
+      height: 26px;
+      top: calc(50vh + 70px + 13px);
+      left: calc(50vw - 13px);
+      animation: spin 0.5s infinite linear;
+    }
+
+    body.loading .mask {
+      width: 12px;
+      height: 12px;
+      overflow: hidden;
+    }
+
+    body.loading .maskedCircle {
+      width: 20px;
+      height: 20px;
+      border-radius: 12px;
+      border: 2px solid gray;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="loading">
+  <div id="content" tabindex="-1" style="outline: none;">
+    <img id="logo" src="/img/rose-crest.png"/>
+    <div class="spinner">
+      <div class="mask">
+        <div class="maskedCircle"></div>
+      </div>
+    </div>
+  </div>
+  <script async src="/index.js"></script>
+</body>
+</html>
