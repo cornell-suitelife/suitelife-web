@@ -3,7 +3,7 @@ import { Router, Route, Link } from 'react-router';
 import { Row, Col } from 'antd';
 import Animate from 'rc-animate';
 
-import validate from '../helpers/validate';
+import validate from './helpers/validate.js';
 
 class Home extends React.Component {
 

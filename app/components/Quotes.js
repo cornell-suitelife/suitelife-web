@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'antd';
 
-import validate from '../helpers/validate';
+import validate from './helpers/validate';
 
 class Quotes extends React.Component {
 	constructor(props) {
