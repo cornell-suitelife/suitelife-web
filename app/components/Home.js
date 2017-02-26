@@ -3,6 +3,8 @@ import { Router, Route, Link } from 'react-router';
 import { Row, Col } from 'antd';
 import Animate from 'rc-animate';
 
+import validate from '../helpers/validate';
+
 class Home extends React.Component {
 
 	constructor(props) {
@@ -17,7 +19,7 @@ class Home extends React.Component {
 	componentDidMount() {
 
     fetch('http://quotes.rest/qod.json?category=funny')
-      .then(response => this.validate(response))
+      .then(response => validate(response))
       .then(json => {
         const quote = json.contents.quotes[0];
         this.setState({
@@ -25,16 +27,6 @@ class Home extends React.Component {
           quoteAuthor: quote.author
         });
       });
-  }
-
-  validate(response) {
-	  	if (response.status >= 200 && response.status < 300) {
-				return response.json()
-			} else {
-				var error = new Error(response.statusText)
-				error.response = response
-				throw error
-		}
   }
 
 	render() {
