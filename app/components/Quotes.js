@@ -13,7 +13,7 @@ class Quotes extends React.Component {
 	}
 
 	componentWillMount() {
-		fetch('/:8080/api/v1/quotes')
+		fetch(':8080/api/v1/quotes')
 			.then(response => validate(response))
       .then(json => {
         const quotes = json.contents;
