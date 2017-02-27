@@ -3,8 +3,9 @@ import { Table, Button, Icon, Input, Select } from 'antd';
 const InputGroup = Input.Group;
 const Option = Select.Option;
 
-import validate from './helpers/validate';
+import 'whatwg-fetch';
 
+import validate from './helpers/validate';
 import { suitemates } from '../data/suitemates';
 
 class Quotes extends React.Component {
