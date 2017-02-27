@@ -26,7 +26,7 @@ class SuiteDoor extends React.Component {
 					</Col>
 					<Col span='8'>
 						<Card title='Peephole Stream' bordered={false} bodyStyle={{ padding: 0 }}>
-							<img src='/public/img/peephole.jpg' alt='peephole' width='100%'/>
+							<img src='/img/peephole.jpg' alt='peephole' width='100%'/>
 						</Card>
 					</Col>
 				</Row>

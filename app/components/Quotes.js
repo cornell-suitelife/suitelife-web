@@ -16,9 +16,8 @@ class Quotes extends React.Component {
 		fetch('http://server.cornellsuite.life:8080/api/v1/quotes')
 			.then(response => validate(response))
       .then(json => {
-        const quotes = json.contents;
         this.setState({
-          quotes: quotes
+          quotes: json
         });
       });
 	}
@@ -31,8 +30,6 @@ class Quotes extends React.Component {
 			quote.key = quote.id;
 			dataSource.push(quote);
 		}
-
-		console.log(dataSource);
 
 		const columns = [{
 			title: 'Quote',
