@@ -65,7 +65,7 @@ class Quotes extends React.Component {
       author: undefined
     });
 
-    fetch('http://server.cornellsuite.life:8080/api/v1/quotes', {
+    fetch('http://cornellsuite.life:8080/api/v1/quotes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -84,7 +84,7 @@ class Quotes extends React.Component {
   }
 
   handleDelete(q) {
-    fetch(`http://server.cornellsuite.life:8080/api/v1/quotes/${q.id}`, {
+    fetch(`http://cornellsuite.life:8080/api/v1/quotes/${q.id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
