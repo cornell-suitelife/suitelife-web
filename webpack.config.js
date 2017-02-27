@@ -4,12 +4,13 @@ module.exports = {
   entry: './app/App.js',
   output: {
     path: './public/js',
-    publicPath: '/public/js',
+    publicPath: '/js',
     filename: 'bundle.js'
   },
   devServer: {
     inline: true,
     historyApiFallback: true,
+    contentBase: './public',
     port: 8008
   },
   module: {

@@ -118,12 +118,37 @@ body {
   transition-delay: 0.0s;
 }
 
+/* App */
+
+.app-content {
+  padding: 24px;
+}
+
 /* Suite Door */
 
 .suite-door .ant-row {
   margin: 16px -8px;
 }
+
 .suite-door .ant-row > div {
   padding: 8px;
   min-width: 300px;
 }
+
+.quotes-table {
+  background-color: #ffffff;
+}
+
+.quotes-delete-button {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.quotes-table tr:hover .quotes-delete-button {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+

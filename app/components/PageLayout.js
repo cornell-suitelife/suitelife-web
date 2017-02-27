@@ -155,8 +155,8 @@ class PageLayout extends React.Component {
           <Header style={{ background: '#fff', padding: 0 }}>
             <h1 style={{ textAlign: 'center' }}>{this.state.title}</h1>
           </Header>
-          <Content style={{ margin: '0 16px' }}>
-            <div style={{ padding: 24, minHeight: 360 }}>
+          <Content>
+            <div className='app-content'>
               {statusAlert}
               {React.cloneElement(this.props.children, { status: this.state.status, socket: socket })}
             </div>
