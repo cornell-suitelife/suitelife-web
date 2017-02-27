@@ -57,15 +57,6 @@ class PageLayout extends React.Component {
       statusAlert = (
         <Alert message='Connecting to server...' type='warning' showIcon/>
       );
-    } else if (this.state.status === 'connected') {
-      statusAlert = (
-        <Alert message='Connected!' type='success' showIcon/>
-      );
-      setTimeout(() => {
-            this.setState({
-            status: 'connected-done'
-          });
-        }, 2000);
     } else if (this.state.status === 'reconnecting') {
       statusAlert = (
         <Alert message='Disconnected. Attempting to reconnect...' type='error' showIcon/>
@@ -132,7 +123,7 @@ class PageLayout extends React.Component {
               </Menu.Item>
               <Menu.Item key='/quotes'>
                 <Link to='/quotes'>
-                  <Icon type='quotes' />
+                  <Icon type='message' />
                   <span className='nav-text'>Quotes</span>
                 </Link>
               </Menu.Item>
@@ -155,8 +146,8 @@ class PageLayout extends React.Component {
           <Header style={{ background: '#fff', padding: 0 }}>
             <h1 style={{ textAlign: 'center' }}>{this.state.title}</h1>
           </Header>
-          <Content style={{ margin: '0 16px' }}>
-            <div style={{ padding: 24, minHeight: 360 }}>
+          <Content>
+            <div className='app-content'>
               {statusAlert}
               {React.cloneElement(this.props.children, { status: this.state.status, socket: socket })}
             </div>

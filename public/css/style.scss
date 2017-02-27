@@ -1,0 +1,196 @@
+html { 
+  background: url('/img/campus-dark.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  min-height: 100vh;
+  background-color: transparent !important;
+}
+
+/* Loading */
+
+$loading-logo-size: 100px;
+$loading-spinner-size: 35px;
+
+body.loading {
+  #logo {
+    position: absolute;
+    display: block;
+    width: $loading-logo-size;
+    height: $loading-logo-size;
+    top: calc(50vh - #{$loading-logo-size});
+    left: calc(50vw - #{$loading-logo-size} / 2);
+  }
+
+  .spinner {
+    position: absolute;
+    display: block;
+    width: $loading-spinner-size;
+    height: $loading-spinner-size;
+    top: calc(50vh + #{$loading-logo-size} / 2 + #{$loading-spinner-size} / 2);
+    left: calc(50vw - #{$loading-spinner-size} / 2);
+    animation: spin 0.5s infinite linear;
+  }
+
+  .mask {
+    width: $loading-spinner-size / 2;
+    height: $loading-spinner-size / 2;
+    overflow: hidden;
+  }
+
+  .maskedCircle {
+    width: $loading-spinner-size;
+    height: $loading-spinner-size;
+    border-radius: $loading-spinner-size / 2;
+    border: 3px solid #ffffff;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Home */
+
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.home-navbar {
+  width: 100%;
+  padding: 30px 50px;
+}
+
+.home-navbar > div {
+  min-width: 70px;
+}
+
+.home-navbar .ant-btn-ghost {
+  color: #ffffff;
+  border: none;
+  margin: 0 10px;
+}
+
+.home-navbar #login-button {
+  margin-left: 15px;
+}
+
+.home-container-page {
+  flex-grow: 1;
+  margin: 50px;
+  bottom: 0;
+  position: relative;
+  .ant-alert {
+    margin-top: -50px;
+  }
+}
+
+.home-table {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+}
+
+.home-cell {
+  color: #ffffff;
+  min-width: 200px;
+  h1 {
+    font-size: 5em;
+  }
+  p {
+    padding-top: 15px;
+    font-size: 1.5em;
+  }
+}
+
+#members-list {
+  font-size: 1em;
+
+  p {
+    padding: 0;
+  }
+}
+
+.home-container-page blockquote {
+  display: block;
+  position: fixed;
+  bottom: 16px;
+  width: 50%;
+  left: 25%;
+  display: block;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  line-height: 120%;
+}
+
+.home-container-page blockquote:hover #quote-text {
+  bottom: 32px;
+}
+
+.home-container-page blockquote:hover #quote-author {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0.25s;
+}
+
+
+#quote-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  transition: all 0.25s;
+}
+
+#quote-author {
+  line-height: 32px;
+  bottom: 0;
+  font-size: 1em;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.25s;
+  transition-delay: 0.0s;
+}
+
+/* App */
+
+.app-content {
+  padding: 24px;
+}
+
+/* Suite Door */
+
+.suite-door .ant-row {
+  margin: 16px -8px;
+}
+
+.suite-door .ant-row > div {
+  padding: 8px;
+  min-width: 300px;
+}
+
+.quotes-table {
+  background-color: #ffffff;
+}
+
+.quotes-delete-button {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.quotes-table tr:hover .quotes-delete-button {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+
