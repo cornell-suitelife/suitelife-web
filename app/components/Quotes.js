@@ -20,7 +20,7 @@ class Quotes extends React.Component {
   }
 
   componentWillMount() {
-    fetch('http://server.cornellsuite.life/api/v1/quotes')
+    fetch('http://cornellsuite.life:8080/api/v1/quotes')
       .then(response => validate(response))
       .then(json => {
         this.setState({
