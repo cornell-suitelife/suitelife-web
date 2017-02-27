@@ -27,6 +27,7 @@
   },
   "scripts": {
     "start": "DEBUG=express:* babel-node server.js",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "serve": "PORT=80 babel-node server.js"
   }
 }
