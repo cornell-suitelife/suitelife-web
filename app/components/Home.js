@@ -31,9 +31,9 @@ class Home extends React.Component {
 
   render() {
 
-    const memberItems = suitemates.map((mate) => {
-      <li><p><b>{mate.name}</b> {mate.major}</p></li>
-    });
+    const memberItems = suitemates.map((mate) => (
+      <li key={mate.netid}><p><b>{mate.name}</b> {mate.major}</p></li>
+    ));
 
     return(
       <div className='home-container-page'>
@@ -53,7 +53,7 @@ class Home extends React.Component {
           </Row>
           <blockquote className='quote' key='2'>
             <p id='quote-text'><b>{this.state.quoteText}</b></p>
-            <p id='quote-author'>- {this.state.quoteAuthor}</p>
+            <p id='quote-author'>{this.state.quoteAuthor}</p>
           </blockquote>
         </Animate>
       </div>

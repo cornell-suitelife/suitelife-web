@@ -12,6 +12,8 @@ class Quotes extends React.Component {
     super(props);
 
     this.state = {
+      posting: false,
+      loading: true,
       quotes: []
     };
 
@@ -22,7 +24,8 @@ class Quotes extends React.Component {
       .then(response => validate(response))
       .then(json => {
         this.setState({
-          quotes: json
+          quotes: json,
+          loading: false
         });
       });
   }
@@ -40,13 +43,20 @@ class Quotes extends React.Component {
   }
 
   handleAdd() {
-    const newQuote = {
-      id: 1234,
-      text: this.state.quote,
-      author: this.state.author
+    if (this.state.posting) return;
+    this.setState({
+      posting: true
+    });
+
+    const body = {
+      content: this.state.quote,
+      author: this.state.author,
+      timestamp: Date.now() / 1000
     };
 
     const quotes = this.state.quotes;
+    const newQuote = Object.assign({}, body);
+    newQuote.id = -2;
     quotes.unshift(newQuote);
 
     this.setState({
@@ -55,16 +65,41 @@ class Quotes extends React.Component {
       author: undefined
     });
 
-    fetch('http://server.cornellsuite.life/api/v1/quotes/new', {
+    fetch('http://server.cornellsuite.life/api/v1/quotes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(newQuote)
+      body: JSON.stringify(body)
     }).then(response => validate(response))
       .then(json => {
-        console.log(json);
+        const quotes = this.state.quotes.slice();
+        quotes.shift();
+        quotes.unshift(json);
+        this.setState({
+          quotes: quotes,
+          posting: false
+        });
       });
+  }
+
+  handleDelete(q) {
+    fetch(`http://server.cornellsuite.life/api/v1/quotes/${q.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(q)
+    }).then(response => validate(response))
+      .then(json => {
+        const quotes = this.state.quotes.slice();
+        quotes.splice(quotes.indexOf(q), 1);
+        this.setState({
+          quotes: quotes,
+          posting: false
+        });
+      });
+    console.log('deleting quote ', q);
   }
 
   render() {
@@ -73,8 +108,8 @@ class Quotes extends React.Component {
     const columns = [
       {
         title: 'Quote',
-        dataIndex: 'text',
-        key: 'text',
+        dataIndex: 'content',
+        key: 'content',
         width: '50%'
       },
       {
@@ -85,8 +120,15 @@ class Quotes extends React.Component {
       {
         dataIndex: '',
         key: 'x',
-        width: 50,
-        render: () => <Button type='danger' className='quotes-delete-button'><Icon onClick={this.deleteQuote} type='delete' /></Button>
+        width: 25,
+        render: (text, record, index) =>
+          <Button
+            type='danger'
+            className='quotes-delete-button'
+            onClick={() => this.handleDelete(record)}
+            style={{ width: 32, padding: '4px 8px' }}>
+            <Icon type='delete' />
+          </Button>
       }
     ];
 
@@ -98,9 +140,17 @@ class Quotes extends React.Component {
 
     return (
       <div>
-        <InputGroup compact>
-          <Input value={this.state.quote} placeholder='Enter a quote...' style={{ width: '50%' }} onChange={(e) => this.quoteChanged(e)} />
-          <Select value={this.state.author} placeholder='Who said it?' style={{ width: 150 }} onChange={(e) => this.authorChanged(e)}>
+        <Input 
+          value={this.state.quote}
+          placeholder='Enter a quote...'
+          style={{ width: '100%' }}
+          onChange={(e) => this.quoteChanged(e)} />
+        <InputGroup style={{ paddingTop: 5, paddingBottom: 15, textAlign: 'right'}}>
+          <Select
+            value={this.state.author}
+            placeholder='Who said it?'
+            style={{ width: 150, textAlign: 'left' }}
+            onChange={(e) => this.authorChanged(e)}>
             {authorOptions}
           </Select>
           <Button type='primary' disabled={!inputValid} onClick={() => this.handleAdd()}>Add</Button>
@@ -109,10 +159,12 @@ class Quotes extends React.Component {
         <Table
           dataSource={dataSource}
           columns={columns}
-          pagination={{ pageSize: 10 }} 
+          pagination={{ pageSize: 5 }} 
           rowKey='id'
-          locale={{ emptyText: 'No Quotes Yet!' }}
-          className='quotes-table' />
+          showHeader={false}
+          locale={{ emptyText: this.state.loading ? '' : 'No Quotes Yet!' }}
+          className='quotes-table'
+          loading={this.state.loading} />
       </div>
     );
   }
