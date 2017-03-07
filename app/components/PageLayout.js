@@ -4,7 +4,7 @@ import { Layout, Menu, Icon, Badge, Alert, Row, Col, Button, Popover } from 'ant
 const { Header, Footer, Sider, Content } = Layout;
 import { titles } from '../routes';
 import io from 'socket.io-client';
-let socket = io(':3000/');
+let socket = io('/');
 
 class PageLayout extends React.Component {
   constructor(props) {
