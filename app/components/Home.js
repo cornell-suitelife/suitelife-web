@@ -38,26 +38,28 @@ class Home extends React.Component {
     ));
 
     return(
-      <div className='home-container-page'>
-        {this.props.alert}
-        <Animate transitionName='fade'>
-          <Row className='home-table' type="flex" justify="space-between" align="middle" key='1'>
-            <Col className='home-cell' span='10'>
-              <h1>Cornell Suite Life</h1>
-              <hr/>
-              <p>201 Space Oddywhey</p>
-            </Col>
-            <Col className='home-cell' span='10' offset='4'>
-              <ul id='members-list'>
-                {memberItems}
-              </ul>
-            </Col>
-          </Row>
-          <blockquote className='quote' key='2'>
-            <p id='quote-text'><b>{this.state.quoteText}</b></p>
-            <p id='quote-author'>{this.state.quoteAuthor}</p>
-          </blockquote>
-        </Animate>
+      <div className='home-container'>
+        <div className='home-container-page'>
+          {this.props.alert}
+          <Animate transitionName='fade'>
+            <Row className='home-table' type="flex" justify="space-between" align="middle" key='1'>
+              <Col className='home-cell' span='10'>
+                <h1>Cornell Suite Life</h1>
+                <hr/>
+                <p>201 Space Oddywhey</p>
+              </Col>
+              <Col className='home-cell' span='10' offset='4'>
+                <ul id='members-list'>
+                  {memberItems}
+                </ul>
+              </Col>
+            </Row>
+            <blockquote className='quote' key='2'>
+              <p id='quote-text'><b>{this.state.quoteText}</b></p>
+              <p id='quote-author'>{this.state.quoteAuthor}</p>
+            </blockquote>
+          </Animate>
+        </div>
       </div>
     );
   }

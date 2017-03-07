@@ -63,51 +63,26 @@ class PageLayout extends React.Component {
       );
     }
 
-    const home = (
-      <div className='home-container' height='100vh'>
-        <Row className='home-navbar' type='flex' justify='end'>
-          <Col>
-            <Button type='ghost'>
-              <Link to='/suite-door'>
-                Suite Door
-              </Link>
-            </Button>
-          </Col>
-          <Col>
-            <Button type='ghost'>
-              <Link to='/quotes'>
-                Quotes
-              </Link>
-            </Button>
-          </Col>
-          <Col>
-            <Button type='ghost'>
-              <Link to='/calendar'>
-                Calendar
-              </Link>
-            </Button>
-          </Col>
-          <Col>
-            <Button type='ghost'>
-              <Link to='/music'>
-                Music
-              </Link>
-            </Button>
-          </Col>
-          <Col>
-            <Popover content='Sorry.' title='Authentication coming soon.' placement='bottomLeft'>
-              <Button type='primary' id='login-button'>Login</Button>
-            </Popover>
-          </Col>
-        </Row>
-        {React.cloneElement(this.props.children, { alert: statusAlert })}
-      </div>
-    );
+    const body = this.state.path === '/'
+      ? React.cloneElement(this.props.children, { alert: statusAlert })
+      : (
+          <Layout style={{minHeight: '100vh'}}>
+            <Content>
+              <div className='app-content'>
+                {statusAlert}
+                {React.cloneElement(this.props.children, { status: this.state.status, socket: socket })}
+              </div>
+            </Content>
+            <Footer style={{ textAlign: 'center' }}>
+              Cornell Suite Life © 2017
+            </Footer>
+          </Layout>
+        );
 
-    return this.state.path === '/' ? home : (
-      <Layout>
+    return (
+      <Layout style={{ backgroundColor: this.state.path === '/' ? 'transparent' : '#ececec'}}>
         <Sider>
-          <Menu theme='dark' mode='inline' selectedKeys={[this.state.path]}>
+          <Menu mode='inline' selectedKeys={[this.state.path]}>
             <Menu.ItemGroup title='Suite Life at Cornell'>
               <Menu.Item key='/'>
                 <Link to='/'>
@@ -142,20 +117,7 @@ class PageLayout extends React.Component {
             </Menu.ItemGroup>
           </Menu>
         </Sider>
-        <Layout style={{minHeight: '100vh'}}>
-          <Header style={{ background: '#fff', padding: 0 }}>
-            <h1 style={{ textAlign: 'center' }}>{this.state.title}</h1>
-          </Header>
-          <Content>
-            <div className='app-content'>
-              {statusAlert}
-              {React.cloneElement(this.props.children, { status: this.state.status, socket: socket })}
-            </div>
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>
-            Cornell Suite Life © 2017
-          </Footer>
-        </Layout>
+        {body}
       </Layout>
     );
   }

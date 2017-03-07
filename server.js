@@ -2,26 +2,20 @@ import http from 'http';
 import express from 'express';
 import path from 'path';
 import io from 'socket.io';
+import auth from './server/auth';
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 const app = express();
 
+app.use(auth);
 app.use(express.static(__dirname + '/public'));
-
-app.get('*', (request, response) => {
-  response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-});
-
-app.listen(port, () => {
-  console.log ("Suite Life Web server started on port " + port);
-});
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/public/index.html')));
 
 const server = http.createServer(app);
 const socket = io(server);
-const socketPort = 3000;
 
 socket.on('connection', (client) => {
-  console.log(`Client connected: ${client}`);
+  console.log(`Client connected`);
   client.on('event', function(data) {
     console.log('')
   });
@@ -31,6 +25,6 @@ socket.on('connection', (client) => {
   });
 });
 
-server.listen(socketPort, () => {
-  console.log ("Listening for SocketIO connections on port " + socketPort);
+server.listen(port, () => {
+  console.log ("Suite Life Web Server listening on port " + port);
 });

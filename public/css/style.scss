@@ -1,5 +1,5 @@
-html { 
-  background: url('/img/campus-dark.jpg') no-repeat center center fixed; 
+html {
+  background: url('/img/campus-blue.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -59,28 +59,10 @@ body.loading {
 
 .home-container {
   min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
-}
-
-.home-navbar {
-  width: 100%;
-  padding: 30px 50px;
-}
-
-.home-navbar > div {
-  min-width: 70px;
-}
-
-.home-navbar .ant-btn-ghost {
-  color: #ffffff;
-  border: none;
-  margin: 0 10px;
-}
-
-.home-navbar #login-button {
-  margin-left: 15px;
 }
 
 .home-container-page {
@@ -121,8 +103,8 @@ body.loading {
 
 .home-container-page blockquote {
   display: block;
-  position: fixed;
-  bottom: 16px;
+  position: absolute;
+  bottom: 0;
   width: 50%;
   left: 25%;
   display: block;
@@ -162,6 +144,14 @@ body.loading {
 
 /* App */
 
+.ant-layout-sider {
+  .ant-menu {
+    position: fixed;
+    width: 200px;
+    min-height: 100vh;
+  }
+}
+
 .app-content {
   padding: 24px;
 }
@@ -190,7 +180,3 @@ body.loading {
   opacity: 1;
   visibility: visible;
 }
-
-
-
-

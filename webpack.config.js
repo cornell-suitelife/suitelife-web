@@ -10,8 +10,7 @@ module.exports = {
   devServer: {
     inline: true,
     historyApiFallback: true,
-    contentBase: './public',
-    port: 8008
+    contentBase: './public'
   },
   module: {
     loaders: [
