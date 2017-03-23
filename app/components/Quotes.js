@@ -2,7 +2,7 @@ import React from 'react';
 import { Table, Button, Icon, Input, Select } from 'antd';
 const InputGroup = Input.Group;
 const Option = Select.Option;
-
+import QuotesChart from './QuotesChart';
 import 'whatwg-fetch';
 
 import validate from './helpers/validate';
@@ -141,7 +141,7 @@ class Quotes extends React.Component {
 
     return (
       <div>
-        <Input 
+        <Input
           value={this.state.quote}
           placeholder='Enter a quote...'
           style={{ width: '100%' }}
@@ -160,12 +160,14 @@ class Quotes extends React.Component {
         <Table
           dataSource={dataSource}
           columns={columns}
-          pagination={{ pageSize: 5 }} 
+          pagination={{ pageSize: 5 }}
           rowKey='id'
           showHeader={false}
           locale={{ emptyText: this.state.loading ? '' : 'No Quotes Yet!' }}
           className='quotes-table'
           loading={this.state.loading} />
+        <br />
+        <QuotesChart quotes={this.state.quotes} />
       </div>
     );
   }
